@@ -1,0 +1,48 @@
+img {
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+    width: 70px;
+    float: right;
+    margin-right: 10px;
+    margin-top: 2.5px;
+    clear:both;
+}
+
+p {
+    font-family: Trebuchet MS, Lucida Grande, 
+                 Lucida Sans Unicode, Lucida Sans, 
+                 Tahoma, sans-serif;
+    margin-left: 5px;
+    overflow:auto;
+    display:block;
+    width: 600px;
+}
+
+.Card {
+    position:relative;
+    height: 75px;
+    margin: 5px;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 3px #ccc;
+    text-align: center;
+}
+
+.Card:before {
+    display:block;
+    content:" ";
+    position:absolute;
+    z-index:-1;
+    background:#bbb;
+    top:0px;
+    bottom:-5px;
+    left:0;
+    right:0;
+    opacity:0.25;
+}
+
+.Card:hover:before {
+    opacity:1;
+    bottom: 0px;
+    border: 1px solid #bbb;
+}
