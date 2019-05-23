@@ -15,7 +15,7 @@ const sendTracks = (selected) => {
             console.log(body);
         });
     }
-}
+};
 
 const getState = async () => {
     return new Promise((resolve, reject) => {
@@ -23,6 +23,6 @@ const getState = async () => {
             resolve(body);
         });
     });
-}
+};
 
 export default {sendTracks, getState};

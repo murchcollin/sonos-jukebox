@@ -7,7 +7,7 @@ import sonos from './../../Sonos/sonos-helper';
 import secrets from './../../secret';
 
 // This is temporary -- fix later
-const tokenURI = 'http://localhost:8080/login'
+const tokenURI = 'http://localhost:8080/login';
 
 class Search extends Component {
 
@@ -15,7 +15,7 @@ class Search extends Component {
         input: '',
         contents: [], // -- Becomes array of dictionaries (properties for each song)
         selected: []  // -- Becomes array of dictionaries (properties for each song)
-    }
+    };
 
     // Check query params as soon as page loads
     componentDidMount() {
@@ -45,7 +45,7 @@ class Search extends Component {
         } else {
             this.setState({contents: []});
         }
-    }
+    };
 
     cardClick = (i) => {
         let selected = this.state.selected;
@@ -55,7 +55,7 @@ class Search extends Component {
 
             this.setState({selected});
         }
-    }
+    };
 
     removeCard = (i) => {
         let selected = this.state.selected;
@@ -65,7 +65,7 @@ class Search extends Component {
         selected.splice(i, bounds);
         
         this.setState({selected});
-    }
+    };
 
     cardHandler = (item, i) => {
         return (
@@ -75,7 +75,7 @@ class Search extends Component {
                 {item}
             </Card>
         );
-    }
+    };
 
     selectedCardHandler = (item, i) => {
         return (
@@ -85,15 +85,15 @@ class Search extends Component {
                 {item}
             </Card>
         );
-    }
+    };
 
     goHandler = () => {
         sonos.sendTracks(this.state.selected.map((item) => {return item}));
-    }
+    };
 
     redirectHandler = () => {
         window.location.assign(tokenURI);
-    }
+    };
 
     // Incredbily insecure. Fix needed.
     tokenHandler = (params) => {
@@ -104,7 +104,7 @@ class Search extends Component {
         secrets.updateToken(token);
 
         console.log('Using new token: ' + secrets.getToken());
-    }
+    };
 
     render() {
         return (

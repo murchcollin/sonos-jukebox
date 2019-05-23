@@ -14,7 +14,7 @@ const Navigation = () => {
             <Nav />
         </BrowserRouter>
     );
-}
+};
 
 ReactDOM.render(<Navigation />, document.getElementById('root'));
 registerServiceWorker();

@@ -8,7 +8,7 @@ let app = express();
 
 const redirect_uri = 
   process.env.REDIRECT_URI || 
-  'http://localhost:8080/callback'
+  'http://localhost:8080/callback';
 
 app.get('/users', (req, res) => {
   res.json([{
@@ -31,7 +31,7 @@ app.get('/login', (req, res) => {
 });
 
 app.get('/callback', (req, res) => {
-  let code = req.query.code || null
+  let code = req.query.code || null;
   let authOptions = {
     url: 'https://accounts.spotify.com/api/token',
     form: {
@@ -45,9 +45,11 @@ app.get('/callback', (req, res) => {
       ).toString('base64'))
     },
     json: true
-  }
+  };
 
   request.post(authOptions, (error, response, body) => {
+    if (body.error)
+        console.log(body);
     let access_token = body.access_token;
     let uri = process.env.FRONTEND_URI || 'http://localhost:3000/search';
     res.redirect(uri + '?access_token=' + access_token);

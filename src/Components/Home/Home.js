@@ -8,7 +8,7 @@ class Home extends Component {
         track: '',
         imageURI: '',
         test: ''
-    }
+    };
 
     componentDidMount() {
         fetch('/users')
@@ -27,7 +27,7 @@ class Home extends Component {
 
     imageHandler = () => {
 
-    }
+    };
 
     render () {
         return (
